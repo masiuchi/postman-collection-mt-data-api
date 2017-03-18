@@ -1,0 +1,4190 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Movable Type Data API v3.1",
+		"_postman_id": "211d6f6b-bd41-4e9f-9017-b2975301cb8a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "asset",
+			"description": "",
+			"item": [
+				{
+					"name": "list_assets",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/assets",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_assets_for_entry",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/assets",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_assets_for_site_and_tag",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}/assets",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "upload_asset",
+					"request": {
+						"url": "{{url}}/{{version}}/assets/upload",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"value": "",
+									"type": "file",
+									"enabled": true
+								},
+								{
+									"key": "site_id",
+									"value": "{{site_id}}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "upload_asset_for_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/assets/upload",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"value": "",
+									"type": "file",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_asset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_asset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "asset",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_asset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_thumbnail",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}/thumbnail",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"description": "",
+			"item": [
+				{
+					"name": "authorize",
+					"request": {
+						"url": "{{url}}/{{version}}/authorization?clientId={{clientId}}&redirectUrl=http://localhost",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "authenticate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"accessToken\", response.accessToken);",
+									"postman.setEnvironmentVariable(\"sessionId\", response.sessionId);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/{{version}}/authentication",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "remember",
+									"value": "1",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "clientId",
+									"value": "{{clientId}}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"accessToken\", response.accessToken);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/{{version}}/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth sessionId={{sessionId}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "revoke_authentication",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"sessionId\");",
+									"postman.clearEnvironmentVariable(\"accessToken\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/{{version}}/authentication",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth sessionId={{sessionId}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "revoke_token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"accessToken\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/{{version}}/token",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "backup",
+			"description": "",
+			"item": [
+				{
+					"name": "backup_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/backup",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"description": "",
+			"item": [
+				{
+					"name": "list_categories",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/categories",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_categories_for_entry",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/categories",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_parent_categories",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}/parents",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_sibling_categories",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}/siblings",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_child_categories",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}/children",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_category",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/categories",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "category",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_category",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_category",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "category",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_category",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "permutate_categories",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/categories/permutate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "categories",
+									"value": "[]",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"description": "",
+			"item": [
+				{
+					"name": "list_comments",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/comments",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_comments_for_entry",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/comments",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_comments_for_page",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}/comments",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_comment",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/comments",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "comment",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_reply_comment",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/comments/{{comment_id}}/replies",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "comment",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_comment_for_page",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}/comments",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "comment",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_reply_comment_for_page",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}/comments/{{comment_id}}/replies",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "comment",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_comment",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/comments/{{comment_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_comment",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/comments/{{comment_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "comment",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_comment",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/comments/{{comment_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "custom field",
+			"description": "",
+			"item": [
+				{
+					"name": "list_fields",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/fields",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_field",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/fields",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "field",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_field",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/fields/{{field_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_field",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/fields/{{field_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "field",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_field",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/fields/{{field_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "entry",
+			"description": "",
+			"item": [
+				{
+					"name": "list_entries",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToke={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_entries_for_category",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}/entries",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_entries_for_asset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}/entries",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_entries_for_site_and_tag",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}/entries",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_entry",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "entry",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_entry",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_entry",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "entry",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_entry",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "import_entries",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/import",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "export_entries",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/export",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "preview_entry_by_id",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/preview",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "preview_entry",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/preview",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "entry",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "folder",
+			"description": "",
+			"item": [
+				{
+					"name": "list_folders",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/folders",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Autorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_parent_folders",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}/parents",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_sibling_folders",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}/siblings",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_child_folders",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}/children",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_folder",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/folders",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "folder",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_folder",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_folder",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "folder",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_folder",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "permutate_folders",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/folders/permutate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "folders",
+									"value": "[]",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "formatted text",
+			"description": "",
+			"item": [
+				{
+					"name": "list_formatted_texts",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/formatted_texts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_formatted_text",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/formatted_texts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "formatted_text",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_formatted_text",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/formatted_texts/{{formatted_text_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_formatted_text",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/formatted_texts/{{formatted_text_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "formatted_text",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_formatted_text",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/formatted_texts/{{formatted_text_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "log",
+			"description": "",
+			"item": [
+				{
+					"name": "list_logs",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/logs",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_log",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/logs",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "log",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_log",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/logs/{{log_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_log",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/logs/{{log_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "log",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_log",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/logs/{{log_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "reset_logs",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/logs",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "export_logs",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/logs/export",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "page",
+			"description": "",
+			"item": [
+				{
+					"name": "list_pages",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_pages_for_folder",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}/pages",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_pages_for_asset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}/pages",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_pages_for_site_and_tag",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}/pages",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_page",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "page",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_page",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_page",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "page",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_page",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "preview_page_by_id",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}/preview",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "preview_page",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages/preview",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "page",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "permission",
+			"description": "",
+			"item": [
+				{
+					"name": "list_permissions",
+					"request": {
+						"url": "{{url}}/{{version}}/permissions",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_permissions_for_user",
+					"request": {
+						"url": "{{url}}/{{version}}/users/{{user_id}}/permissions",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_permissions_for_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/permissions",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_permissions_for_role",
+					"request": {
+						"url": "{{url}}/{{version}}/roles/{{role_id}}/permissions",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "grant_permission_to_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/permissions/grant",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{user_id}}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "role_id",
+									"value": "{{role_id}}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "grant_permission_to_user",
+					"request": {
+						"url": "{{url}}/{{version}}/users/{{user_id}}/permissions/grant",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "site_id",
+									"value": "{{site_id}}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "role_id",
+									"value": "{{role_id}}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "revoke_permission_from_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/permissions/revoke",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "{{user_id}}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "role_id",
+									"value": "{{role_id}}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "revoke_permission_from_user",
+					"request": {
+						"url": "{{url}}/{{version}}/users/{{user_id}}/permissions/revoke",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "site_id",
+									"value": "{{site_id}}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "role_id",
+									"value": "{{role_id}}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "plugin",
+			"description": "",
+			"item": [
+				{
+					"name": "list_plugins",
+					"request": {
+						"url": "{{url}}/{{version}}/plugins",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_plugin",
+					"request": {
+						"url": "{{url}}/{{version}}/plugins/{{plugin_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "enable_plugin",
+					"request": {
+						"url": "{{url}}/{{version}}/plugins/{{plugin_id}}/enable",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "disable_plugin",
+					"request": {
+						"url": "{{url}}/{{version}}/plugins/{{plugin_id}}/disable",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "enable_all_plugins",
+					"request": {
+						"url": "{{url}}/{{version}}/plugins/enable",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "disable_all_plugins",
+					"request": {
+						"url": "{{url}}/{{version}}/plugins/disable",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "publish",
+			"description": "",
+			"item": [
+				{
+					"name": "publish_entries",
+					"request": {
+						"url": "{{url}}/{{version}}/publish/entries",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role",
+			"description": "",
+			"item": [
+				{
+					"name": "list_roles",
+					"request": {
+						"url": "{{url}}/{{version}}/roles",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_role",
+					"request": {
+						"url": "{{url}}/{{version}}/roles",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "role",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_role",
+					"request": {
+						"url": "{{url}}/{{version}}/roles/{{role_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_role",
+					"request": {
+						"url": "{{url}}/{{version}}/roles/{{role_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "role",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_role",
+					"request": {
+						"url": "{{url}}/{{version}}/roles/{{role_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "search",
+			"description": "",
+			"item": [
+				{
+					"name": "search",
+					"request": {
+						"url": "{{url}}/{{version}}/search?search=",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "site",
+			"description": "",
+			"item": [
+				{
+					"name": "list_sites",
+					"request": {
+						"url": "{{url}}/{{version}}/sites",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_blogs_for_user",
+					"request": {
+						"url": "{{url}}/{{version}}/users/{{user_id}}/sites",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_sites_by_parent",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/children",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "insert_new_blog",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "blog",
+									"value": "{\"name\":\"blog\",\"url\":\"blog\",\"sitePath\":\"blog\"}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "insert_new_website",
+					"request": {
+						"url": "{{url}}/{{version}}/sites",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "website",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_blog",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "website",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "blog",
+									"value": "{}",
+									"type": "text",
+									"enabled": false
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stats",
+			"description": "",
+			"item": [
+				{
+					"name": "get_stats_provider",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/stats/provider",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_stats_pageviews_for_path",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/stats/path/pageviews",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_stats_visits_for_path",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/stats/path/visits",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_stats_pageviews_for_date",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/stats/date/pageviews",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_stats_visits_for_date",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/stats/date/visits",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "system",
+			"description": "",
+			"item": [
+				{
+					"name": "get_version",
+					"request": {
+						"url": "{{url}}/version",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_endpoints",
+					"request": {
+						"url": "{{url}}/{{version}}/endpoints?includeComponents=&excludeComponents",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "xWnkliVQJURqB2x1",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "redirect_uri",
+									"value": "https://www.getpostman.com/oauth2/callback",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "client_id",
+									"value": "abc123",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "client_secret",
+									"value": "ssh-secret",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tag",
+			"description": "",
+			"item": [
+				{
+					"name": "list_tags_for_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/tags",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_tag_for_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "rename_tag_for_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "tag",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_tag_for_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "template",
+			"description": "",
+			"item": [
+				{
+					"name": "list_templates",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_template",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "template",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_template",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_template",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "template",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_template",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "preview_template_by_id",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/preview",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "preview_template",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/preview",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "template",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "clone_template",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/clone",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "publish_template",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/publish",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "refresh_template",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/refresh",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "refresh_templates_for_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/refresh_templates",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "template map",
+			"description": "",
+			"item": [
+				{
+					"name": "list_templatemaps",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/templatemaps",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_templatemap",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/templatemaps",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "templatemap",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_templatemap",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/templatemaps/{{templatemap_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_templatemap",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/templatemaps/{{templatemap_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "templatemap",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_templatemap",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/templatemaps/{{templatemap_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "theme",
+			"description": "",
+			"item": [
+				{
+					"name": "list_themes",
+					"request": {
+						"url": "{{url}}/{{version}}/themes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_themes_for_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/themes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_theme",
+					"request": {
+						"url": "{{url}}/{{version}}/themes/{{theme_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_theme_for_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/themes/{{theme_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "apply_theme_to_site",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/themes/{{theme_id}}/apply",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "uninstall_theme",
+					"request": {
+						"url": "{{url}}/{{version}}/themes/{{theme_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "export_site_theme",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/export_theme",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trackback",
+			"description": "",
+			"item": [
+				{
+					"name": "list_trackbacks",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/trackbacks",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_trackbacks_for_entry",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/trackbacks",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_trackbacks_for_page",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}/trackbacks",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_trackback",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/trackbacks/{{ping_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_trackback",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/trackbacks/{{ping_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "trackback",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_trackback",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/trackbacks/{{ping_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"description": "",
+			"item": [
+				{
+					"name": "list_users",
+					"request": {
+						"url": "{{url}}/{{version}}/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_user",
+					"request": {
+						"url": "{{url}}/{{version}}/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_user",
+					"request": {
+						"url": "{{url}}/{{version}}/users/{{user_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "//X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_user",
+					"request": {
+						"url": "{{url}}/{{version}}/users/{{user_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user",
+					"request": {
+						"url": "{{url}}/{{version}}/users/{{user_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "unlock_user",
+					"request": {
+						"url": "{{url}}/{{version}}/users/{{user_id}}/unlock",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "recover_password_for_user",
+					"request": {
+						"url": "{{url}}/{{version}}/users/{{user_id}}/recover_password",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "recover_password",
+					"request": {
+						"url": "{{url}}/{{version}}/recover_password",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "widget",
+			"description": "",
+			"item": [
+				{
+					"name": "list_widgets",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgets",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list_widgets_for_widgetset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets/{{widgetset_id}}/widgets",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_widget",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgets/{{widget_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_widget_for_widgetset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets/{{widgetset_id}}/widgets/{{widget_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_widget",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgets",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "widget",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_widget",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgets/{{widget_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "widget",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_widget",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgets/{{widget_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "refresh_widget",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgets/{{widget_id}}/refresh",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "clone_widget",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgets/{{widget_id}}/clone",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "widget set",
+			"description": "",
+			"item": [
+				{
+					"name": "list_widgetsets",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get_widgetset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets/{{widgetset_id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create_widgetset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "widgetset",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_widgetset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets/{{widgetset_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "widgetset",
+									"value": "{}",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete_widgetset",
+					"request": {
+						"url": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets/{{widgetset_id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-MT-Authorization",
+								"value": "MTAuth accessToken={{accessToken}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
