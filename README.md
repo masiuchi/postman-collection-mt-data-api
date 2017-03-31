@@ -4,7 +4,7 @@
 
 ## 概要
 
-* Movable Type Data API v3.1 時点でのエンドポイントを collection にしました。
+* Movable Type Data API v3.1 時点でのエンドポイントを Postman の collection にしました。
 * API URL、ログイン情報、URL パラメータは environment に保存して使います。
 * セッション ID・アクセストークンは Auth 系のエンドポイントをリクエストした後に environment で自動的に更新されます。
 * 認証が必要なエンドポイントは envrionment にあるアクセストークンを自動的に使用します。
@@ -19,7 +19,7 @@
 
 ### environment の設定
 * url(API URL), username, password を適切に設定してください。
-* site_id, entry_id などのパラメータもここで指定してください。
+* site_id, entry_id などの URL パラメータもここで指定してください。
 
 ![](https://github.com/masiuchi/postman-collection-mt-data-api/blob/master/postman.png?raw=true)
 ![](https://github.com/masiuchi/postman-collection-mt-data-api/blob/master/environment_list.png?raw=true)
