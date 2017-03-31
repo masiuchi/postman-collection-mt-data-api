@@ -5,7 +5,7 @@
 ## 概要
 
 * Movable Type Data API v3.1 時点でのエンドポイントを collection にしました。
-* API URL、ログイン情報、各種パラメータは environment に保存して使います。
+* API URL、ログイン情報、URL パラメータは environment に保存して使います。
 * セッション ID・アクセストークンは Auth 系のエンドポイントをリクエストした後に environment で自動的に更新されます。
 * 認証が必要なエンドポイントは envrionment にあるアクセストークンを自動的に使用します。
 
