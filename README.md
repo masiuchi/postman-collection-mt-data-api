@@ -14,7 +14,13 @@
 ### collection と environment のインポート
 * 上の「Run in Postman」ボタンをクリックして、collection と environment を Postman にインポートする。
   * Postman for Chrome を使っている場合は、Chrome で上記ボタンをクリックする必要がありそうです。
+  
+![](https://github.com/masiuchi/postman-collection-mt-data-api/blob/master/open_postman.png?raw=true)
 
 ### environment の設定
 * url(API URL), username, password を適切に設定してください。
 * site_id, entry_id などのパラメータもここで指定してください。
+
+![](https://github.com/masiuchi/postman-collection-mt-data-api/blob/master/postman.png?raw=true)
+![](https://github.com/masiuchi/postman-collection-mt-data-api/blob/master/environment_list.png?raw=true)
+![](https://github.com/masiuchi/postman-collection-mt-data-api/blob/master/edit_environment.png?raw=true)
