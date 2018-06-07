@@ -4,7 +4,7 @@
 
 ## 概要
 
-* Movable Type Data API v3.1 時点でのエンドポイントを Postman の collection にしました。
+* Movable Type Data API v3.1 と v4 時点でのエンドポイントを Postman の collection にしました。
 * API URL、ログイン情報、URL パラメータは environment に保存して使います。
 * セッション ID・アクセストークンは Auth 系のエンドポイントをリクエストした後に environment で自動的に更新されます。
 * 認証が必要なエンドポイントは envrionment にあるアクセストークンを自動的に使用します。
