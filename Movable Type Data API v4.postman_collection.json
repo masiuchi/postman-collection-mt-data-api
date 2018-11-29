@@ -1,13 +1,12 @@
 {
 	"info": {
-		"_postman_id": "211d6f6b-bd41-4e9f-9017-b2975301cb8a",
+		"_postman_id": "11229b72-48d8-4119-a305-e6a07edc84f9",
 		"name": "Movable Type Data API v4",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "asset",
-			"description": "",
 			"item": [
 				{
 					"name": "list_assets",
@@ -20,7 +19,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/assets",
 							"host": [
@@ -47,7 +49,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/assets",
 							"host": [
@@ -70,7 +75,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}/assets",
 							"host": [
@@ -103,8 +111,8 @@
 							"formdata": [
 								{
 									"key": "file",
-									"value": "",
-									"type": "file"
+									"type": "file",
+									"src": ""
 								},
 								{
 									"key": "site_id",
@@ -142,8 +150,8 @@
 							"formdata": [
 								{
 									"key": "file",
-									"value": "",
-									"type": "file"
+									"type": "file",
+									"src": ""
 								}
 							]
 						},
@@ -174,7 +182,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}",
 							"host": [
@@ -241,7 +252,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}",
 							"host": [
@@ -269,7 +283,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}/thumbnail",
 							"host": [
@@ -291,19 +308,34 @@
 		},
 		{
 			"name": "auth",
-			"description": "",
 			"item": [
 				{
 					"name": "authorize",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/authorization?clientId={{clientId}}&redirectUrl=http://localhost",
-							"protocol": "{{url}}/{{version}}/authorization?clientId={{clientId}}&redirectUrl=http",
 							"host": [
-								"localhost"
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"authorization"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "{{clientId}}"
+								},
+								{
+									"key": "redirectUrl",
+									"value": "http://localhost"
+								}
 							]
 						}
 					},
@@ -389,7 +421,10 @@
 								"value": "MTAuth sessionId={{sessionId}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/token",
 							"host": [
@@ -425,7 +460,10 @@
 								"value": "MTAuth sessionId={{sessionId}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/authentication",
 							"host": [
@@ -460,7 +498,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/token",
 							"host": [
@@ -478,7 +519,6 @@
 		},
 		{
 			"name": "backup",
-			"description": "",
 			"item": [
 				{
 					"name": "backup_site",
@@ -490,7 +530,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/backup",
 							"host": [
@@ -510,7 +553,6 @@
 		},
 		{
 			"name": "category",
-			"description": "",
 			"item": [
 				{
 					"name": "list_categories",
@@ -523,7 +565,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categories",
 							"host": [
@@ -550,7 +595,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/categories",
 							"host": [
@@ -579,7 +627,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}/parents",
 							"host": [
@@ -608,7 +659,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}/siblings",
 							"host": [
@@ -637,7 +691,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}/children",
 							"host": [
@@ -705,7 +762,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}",
 							"host": [
@@ -772,7 +832,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_set_id}}",
 							"host": [
@@ -828,12 +891,149 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "list_categories_for_category_set",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categorySets/{{category_set_id}}/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"sites",
+								"{{site_id}}",
+								"categorySets",
+								"{{category_set_id}}",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "X-MT-Authorization",
+									"value": "MTAuth accessToken={{accessToken}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list_parent_categories_for_category_set",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categorySets/{{category_set_id}}/categories/{{category_id}}/parents",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"sites",
+								"{{site_id}}",
+								"categorySets",
+								"{{category_set_id}}",
+								"categories",
+								"{{category_id}}",
+								"parents"
+							],
+							"query": [
+								{
+									"key": "X-MT-Authorization",
+									"value": "MTAuth accessToken={{accessToken}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list_sibling_categories_for_category_set",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categorySets/{{category_set_id}}/categories/{{category_id}}/siblings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"sites",
+								"{{site_id}}",
+								"categorySets",
+								"{{category_set_id}}",
+								"categories",
+								"{{category_id}}",
+								"siblings"
+							],
+							"query": [
+								{
+									"key": "X-MT-Authorization",
+									"value": "MTAuth accessToken={{accessToken}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list_child_categories_for_category_set",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categorySets/{{category_set_id}}/categories/{{category_id}}/children",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"sites",
+								"{{site_id}}",
+								"categorySets",
+								"{{category_set_id}}",
+								"categories",
+								"{{category_id}}",
+								"children"
+							],
+							"query": [
+								{
+									"key": "X-MT-Authorization",
+									"value": "MTAuth accessToken={{accessToken}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
 			"name": "category set",
-			"description": "",
 			"item": [
 				{
 					"name": "list_category_sets",
@@ -846,9 +1046,12 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/category_sets",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categorySets",
 							"host": [
 								"{{url}}"
 							],
@@ -856,7 +1059,7 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"category_sets"
+								"categorySets"
 							]
 						}
 					},
@@ -873,9 +1076,12 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/category_sets/{{category_set_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categorySets/{{category_set_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -883,7 +1089,7 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"category_sets",
+								"categorySets",
 								"{{category_set_id}}"
 							]
 						}
@@ -900,9 +1106,12 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/category_sets/{{category_set_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categorySets/{{category_set_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -910,7 +1119,7 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"category_sets",
+								"categorySets",
 								"{{category_set_id}}"
 							]
 						}
@@ -937,13 +1146,12 @@
 								{
 									"key": "category_set",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/category_sets",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categorySets",
 							"host": [
 								"{{url}}"
 							],
@@ -951,7 +1159,7 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"category_sets"
+								"categorySets"
 							]
 						}
 					},
@@ -977,13 +1185,12 @@
 								{
 									"key": "category_set",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/category_sets/{{category_set_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categorySets/{{category_set_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -991,7 +1198,7 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"category_sets",
+								"categorySets",
 								"{{category_set_id}}"
 							]
 						}
@@ -1002,7 +1209,6 @@
 		},
 		{
 			"name": "comment",
-			"description": "",
 			"item": [
 				{
 					"name": "list_comments",
@@ -1015,7 +1221,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/comments",
 							"host": [
@@ -1042,7 +1251,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/comments",
 							"host": [
@@ -1071,7 +1283,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}/comments",
 							"host": [
@@ -1268,7 +1483,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/comments/{{comment_id}}",
 							"host": [
@@ -1335,7 +1553,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/comments/{{comment_id}}",
 							"host": [
@@ -1356,7 +1577,6 @@
 		},
 		{
 			"name": "content data",
-			"description": "",
 			"item": [
 				{
 					"name": "list_content_data",
@@ -1368,9 +1588,12 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_data",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/data",
 							"host": [
 								"{{url}}"
 							],
@@ -1378,9 +1601,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_data"
+								"data"
 							]
 						}
 					},
@@ -1406,13 +1629,12 @@
 								{
 									"key": "content_data",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_data",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/data",
 							"host": [
 								"{{url}}"
 							],
@@ -1420,9 +1642,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_data"
+								"data"
 							]
 						}
 					},
@@ -1438,9 +1660,12 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_data/{{content_data_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/data/{{content_data_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1448,9 +1673,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_data",
+								"data",
 								"{{content_data_id}}"
 							]
 						}
@@ -1477,13 +1702,12 @@
 								{
 									"key": "content_data",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_data/{{content_data_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/data/{{content_data_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1491,9 +1715,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_data",
+								"data",
 								"{{content_data_id}}"
 							]
 						}
@@ -1510,9 +1734,12 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_data/{{content_data_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/data/{{content_data_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1520,9 +1747,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_data",
+								"data",
 								"{{content_data_id}}"
 							]
 						}
@@ -1549,13 +1776,12 @@
 								{
 									"key": "content_data",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_data/{{content_data_id}}/preview",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/data/{{content_data_id}}/preview",
 							"host": [
 								"{{url}}"
 							],
@@ -1563,9 +1789,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_data",
+								"data",
 								"{{content_data_id}}",
 								"preview"
 							]
@@ -1593,13 +1819,12 @@
 								{
 									"key": "content_data",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_data/preview",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/data/preview",
 							"host": [
 								"{{url}}"
 							],
@@ -1607,9 +1832,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_data",
+								"data",
 								"preview"
 							]
 						}
@@ -1620,7 +1845,6 @@
 		},
 		{
 			"name": "content field",
-			"description": "",
 			"item": [
 				{
 					"name": "list_content_fields",
@@ -1632,9 +1856,12 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_fields",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/fields",
 							"host": [
 								"{{url}}"
 							],
@@ -1642,9 +1869,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_fields"
+								"fields"
 							]
 						}
 					},
@@ -1670,13 +1897,12 @@
 								{
 									"key": "content_field",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_fields",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/fields",
 							"host": [
 								"{{url}}"
 							],
@@ -1684,9 +1910,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_fields"
+								"fields"
 							]
 						}
 					},
@@ -1702,9 +1928,12 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_fields/{{content_field_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/fields/{{content_field_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1712,9 +1941,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_fields",
+								"fields",
 								"{{content_field_id}}"
 							]
 						}
@@ -1741,13 +1970,12 @@
 								{
 									"key": "content_field",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_fields/{{content_field_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/fields/{{content_field_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1755,9 +1983,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_fields",
+								"fields",
 								"{{content_field_id}}"
 							]
 						}
@@ -1774,9 +2002,12 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_fields/{{content_field_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/fields/{{content_field_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1784,9 +2015,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_fields",
+								"fields",
 								"{{content_field_id}}"
 							]
 						}
@@ -1813,13 +2044,12 @@
 								{
 									"key": "content_fields",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}/content_fields/permutate",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}/fields/permutate",
 							"host": [
 								"{{url}}"
 							],
@@ -1827,9 +2057,9 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}",
-								"content_fields",
+								"fields",
 								"permutate"
 							]
 						}
@@ -1840,7 +2070,6 @@
 		},
 		{
 			"name": "content type",
-			"description": "",
 			"item": [
 				{
 					"name": "list_content_types",
@@ -1852,9 +2081,12 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes",
 							"host": [
 								"{{url}}"
 							],
@@ -1862,7 +2094,7 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types"
+								"contentTypes"
 							]
 						}
 					},
@@ -1878,9 +2110,12 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1888,7 +2123,7 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}"
 							]
 						}
@@ -1915,13 +2150,12 @@
 								{
 									"key": "content_type",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes",
 							"host": [
 								"{{url}}"
 							],
@@ -1929,7 +2163,7 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types"
+								"contentTypes"
 							]
 						}
 					},
@@ -1955,13 +2189,12 @@
 								{
 									"key": "content_type",
 									"value": "{}",
-									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1969,7 +2202,7 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}"
 							]
 						}
@@ -1990,9 +2223,12 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{url}}/{{version}}/sites/{{site_id}}/content_types/{{content_type_id}}",
+							"raw": "{{url}}/{{version}}/sites/{{site_id}}/contentTypes/{{content_type_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -2000,7 +2236,7 @@
 								"{{version}}",
 								"sites",
 								"{{site_id}}",
-								"content_types",
+								"contentTypes",
 								"{{content_type_id}}"
 							]
 						}
@@ -2011,7 +2247,6 @@
 		},
 		{
 			"name": "custom field",
-			"description": "",
 			"item": [
 				{
 					"name": "list_fields",
@@ -2023,7 +2258,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/fields",
 							"host": [
@@ -2088,7 +2326,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/fields/{{field_id}}",
 							"host": [
@@ -2155,7 +2396,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/fields/{{field_id}}",
 							"host": [
@@ -2176,7 +2420,6 @@
 		},
 		{
 			"name": "entry",
-			"description": "",
 			"item": [
 				{
 					"name": "list_entries",
@@ -2189,7 +2432,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/entries",
 							"host": [
@@ -2216,7 +2462,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/categories/{{category_id}}/entries",
 							"host": [
@@ -2245,7 +2494,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}/entries",
 							"host": [
@@ -2274,7 +2526,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}/entries",
 							"host": [
@@ -2342,7 +2597,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}",
 							"host": [
@@ -2409,7 +2667,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}",
 							"host": [
@@ -2436,7 +2697,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/entries/import",
 							"host": [
@@ -2463,7 +2727,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/entries/export",
 							"host": [
@@ -2490,7 +2757,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/preview",
 							"host": [
@@ -2552,7 +2822,6 @@
 		},
 		{
 			"name": "folder",
-			"description": "",
 			"item": [
 				{
 					"name": "list_folders",
@@ -2565,7 +2834,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/folders",
 							"host": [
@@ -2592,7 +2864,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}/parents",
 							"host": [
@@ -2621,7 +2896,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}/siblings",
 							"host": [
@@ -2650,7 +2928,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}/children",
 							"host": [
@@ -2718,7 +2999,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}",
 							"host": [
@@ -2785,7 +3069,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}",
 							"host": [
@@ -2846,7 +3133,6 @@
 		},
 		{
 			"name": "formatted text",
-			"description": "",
 			"item": [
 				{
 					"name": "list_formatted_texts",
@@ -2858,7 +3144,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/formatted_texts",
 							"host": [
@@ -2923,7 +3212,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/formatted_texts/{{formatted_text_id}}",
 							"host": [
@@ -2990,7 +3282,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/formatted_texts/{{formatted_text_id}}",
 							"host": [
@@ -3011,7 +3306,6 @@
 		},
 		{
 			"name": "log",
-			"description": "",
 			"item": [
 				{
 					"name": "list_logs",
@@ -3023,7 +3317,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/logs",
 							"host": [
@@ -3088,7 +3385,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/logs/{{log_id}}",
 							"host": [
@@ -3155,7 +3455,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/logs/{{log_id}}",
 							"host": [
@@ -3182,7 +3485,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/logs",
 							"host": [
@@ -3208,7 +3514,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/logs/export",
 							"host": [
@@ -3229,7 +3538,6 @@
 		},
 		{
 			"name": "page",
-			"description": "",
 			"item": [
 				{
 					"name": "list_pages",
@@ -3242,7 +3550,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/pages",
 							"host": [
@@ -3269,7 +3580,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/folders/{{folder_id}}/pages",
 							"host": [
@@ -3298,7 +3612,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/assets/{{asset_id}}/pages",
 							"host": [
@@ -3327,7 +3644,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}/pages",
 							"host": [
@@ -3395,7 +3715,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}",
 							"host": [
@@ -3462,7 +3785,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}",
 							"host": [
@@ -3489,7 +3815,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}/preview",
 							"host": [
@@ -3551,7 +3880,6 @@
 		},
 		{
 			"name": "permission",
-			"description": "",
 			"item": [
 				{
 					"name": "list_permissions",
@@ -3563,7 +3891,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/permissions",
 							"host": [
@@ -3587,7 +3918,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/users/{{user_id}}/permissions",
 							"host": [
@@ -3613,7 +3947,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/permissions",
 							"host": [
@@ -3639,7 +3976,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/roles/{{role_id}}/permissions",
 							"host": [
@@ -3823,7 +4163,6 @@
 		},
 		{
 			"name": "plugin",
-			"description": "",
 			"item": [
 				{
 					"name": "list_plugins",
@@ -3835,7 +4174,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/plugins",
 							"host": [
@@ -3859,7 +4201,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/plugins/{{plugin_id}}",
 							"host": [
@@ -3884,7 +4229,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/plugins/{{plugin_id}}/enable",
 							"host": [
@@ -3910,7 +4258,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/plugins/{{plugin_id}}/disable",
 							"host": [
@@ -3936,7 +4287,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/plugins/enable",
 							"host": [
@@ -3961,7 +4315,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/plugins/disable",
 							"host": [
@@ -3980,7 +4337,6 @@
 		},
 		{
 			"name": "publish",
-			"description": "",
 			"item": [
 				{
 					"name": "publish_entries",
@@ -3992,7 +4348,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/publish/entries",
 							"host": [
@@ -4017,7 +4376,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/publish/content_data",
 							"host": [
@@ -4036,7 +4398,6 @@
 		},
 		{
 			"name": "role",
-			"description": "",
 			"item": [
 				{
 					"name": "list_roles",
@@ -4048,7 +4409,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/roles",
 							"host": [
@@ -4109,7 +4473,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/roles/{{role_id}}",
 							"host": [
@@ -4172,7 +4539,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/roles/{{role_id}}",
 							"host": [
@@ -4191,14 +4561,16 @@
 		},
 		{
 			"name": "search",
-			"description": "",
 			"item": [
 				{
 					"name": "search",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/search?search=",
 							"host": [
@@ -4222,7 +4594,6 @@
 		},
 		{
 			"name": "site",
-			"description": "",
 			"item": [
 				{
 					"name": "list_sites",
@@ -4235,7 +4606,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites",
 							"host": [
@@ -4260,7 +4634,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/users/{{user_id}}/sites",
 							"host": [
@@ -4287,7 +4664,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/children",
 							"host": [
@@ -4389,7 +4769,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}",
 							"host": [
@@ -4458,7 +4841,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}",
 							"host": [
@@ -4477,7 +4863,6 @@
 		},
 		{
 			"name": "stats",
-			"description": "",
 			"item": [
 				{
 					"name": "get_stats_provider",
@@ -4489,7 +4874,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/stats/provider",
 							"host": [
@@ -4516,7 +4904,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/stats/path/pageviews",
 							"host": [
@@ -4544,7 +4935,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/stats/path/visits",
 							"host": [
@@ -4572,7 +4966,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/stats/date/pageviews",
 							"host": [
@@ -4600,7 +4997,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/stats/date/visits",
 							"host": [
@@ -4622,14 +5022,16 @@
 		},
 		{
 			"name": "system",
-			"description": "",
 			"item": [
 				{
 					"name": "get_version",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/version",
 							"host": [
@@ -4648,37 +5050,11 @@
 						"method": "GET",
 						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "code",
-									"value": "xWnkliVQJURqB2x1",
-									"type": "text"
-								},
-								{
-									"key": "grant_type",
-									"value": "authorization_code",
-									"type": "text"
-								},
-								{
-									"key": "redirect_uri",
-									"value": "https://www.getpostman.com/oauth2/callback",
-									"type": "text"
-								},
-								{
-									"key": "client_id",
-									"value": "abc123",
-									"type": "text"
-								},
-								{
-									"key": "client_secret",
-									"value": "ssh-secret",
-									"type": "text"
-								}
-							]
+							"mode": "raw",
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/endpoints?includeComponents=&excludeComponents",
+							"raw": "{{url}}/{{version}}/endpoints?includeComponents=&excludeComponents=",
 							"host": [
 								"{{url}}"
 							],
@@ -4704,7 +5080,6 @@
 		},
 		{
 			"name": "tag",
-			"description": "",
 			"item": [
 				{
 					"name": "list_tags_for_site",
@@ -4717,7 +5092,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/tags",
 							"host": [
@@ -4744,7 +5122,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}",
 							"host": [
@@ -4811,7 +5192,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/tags/{{tag_id}}",
 							"host": [
@@ -4832,7 +5216,6 @@
 		},
 		{
 			"name": "template",
-			"description": "",
 			"item": [
 				{
 					"name": "list_templates",
@@ -4844,7 +5227,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/templates",
 							"host": [
@@ -4909,7 +5295,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}",
 							"host": [
@@ -4976,7 +5365,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}",
 							"host": [
@@ -5003,7 +5395,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/preview",
 							"host": [
@@ -5071,7 +5466,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/clone",
 							"host": [
@@ -5099,7 +5497,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/publish",
 							"host": [
@@ -5127,7 +5528,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/refresh",
 							"host": [
@@ -5155,7 +5559,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/refresh_templates",
 							"host": [
@@ -5175,7 +5582,6 @@
 		},
 		{
 			"name": "template map",
-			"description": "",
 			"item": [
 				{
 					"name": "list_templatemaps",
@@ -5187,7 +5593,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/templatemaps",
 							"host": [
@@ -5256,7 +5665,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/templatemaps/{{templatemap_id}}",
 							"host": [
@@ -5327,7 +5739,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/templates/{{template_id}}/templatemaps/{{templatemap_id}}",
 							"host": [
@@ -5350,7 +5765,6 @@
 		},
 		{
 			"name": "theme",
-			"description": "",
 			"item": [
 				{
 					"name": "list_themes",
@@ -5362,7 +5776,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/themes",
 							"host": [
@@ -5386,7 +5803,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/themes",
 							"host": [
@@ -5412,7 +5832,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/themes/{{theme_id}}",
 							"host": [
@@ -5437,7 +5860,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/themes/{{theme_id}}",
 							"host": [
@@ -5464,7 +5890,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/themes/{{theme_id}}/apply",
 							"host": [
@@ -5492,7 +5921,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/themes/{{theme_id}}",
 							"host": [
@@ -5517,7 +5949,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/export_theme",
 							"host": [
@@ -5537,7 +5972,6 @@
 		},
 		{
 			"name": "trackback",
-			"description": "",
 			"item": [
 				{
 					"name": "list_trackbacks",
@@ -5550,7 +5984,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/trackbacks",
 							"host": [
@@ -5577,7 +6014,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/entries/{{entry_id}}/trackbacks",
 							"host": [
@@ -5606,7 +6046,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/pages/{{page_id}}/trackbacks",
 							"host": [
@@ -5635,7 +6078,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/trackbacks/{{ping_id}}",
 							"host": [
@@ -5702,7 +6148,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/trackbacks/{{ping_id}}",
 							"host": [
@@ -5723,7 +6172,6 @@
 		},
 		{
 			"name": "user",
-			"description": "",
 			"item": [
 				{
 					"name": "list_users",
@@ -5736,7 +6184,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/users",
 							"host": [
@@ -5798,7 +6249,10 @@
 								"disabled": true
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/users/{{user_id}}",
 							"host": [
@@ -5861,7 +6315,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/users/{{user_id}}",
 							"host": [
@@ -5886,7 +6343,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/users/{{user_id}}/unlock",
 							"host": [
@@ -5912,7 +6372,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/users/{{user_id}}/recover_password",
 							"host": [
@@ -5933,7 +6396,10 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/recover_password",
 							"host": [
@@ -5951,7 +6417,6 @@
 		},
 		{
 			"name": "widget",
-			"description": "",
 			"item": [
 				{
 					"name": "list_widgets",
@@ -5963,7 +6428,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/widgets",
 							"host": [
@@ -5989,7 +6457,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets/{{widgetset_id}}/widgets",
 							"host": [
@@ -6017,7 +6488,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/widgets/{{widget_id}}",
 							"host": [
@@ -6044,7 +6518,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets/{{widgetset_id}}/widgets/{{widget_id}}",
 							"host": [
@@ -6152,7 +6629,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/widgets/{{widget_id}}",
 							"host": [
@@ -6179,7 +6659,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/widgets/{{widget_id}}/refresh",
 							"host": [
@@ -6207,7 +6690,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/widgets/{{widget_id}}/clone",
 							"host": [
@@ -6229,7 +6715,6 @@
 		},
 		{
 			"name": "widget set",
-			"description": "",
 			"item": [
 				{
 					"name": "list_widgetsets",
@@ -6241,7 +6726,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets",
 							"host": [
@@ -6267,7 +6755,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets/{{widgetset_id}}",
 							"host": [
@@ -6373,7 +6864,10 @@
 								"value": "MTAuth accessToken={{accessToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{url}}/{{version}}/sites/{{site_id}}/widgetsets/{{widgetset_id}}",
 							"host": [
